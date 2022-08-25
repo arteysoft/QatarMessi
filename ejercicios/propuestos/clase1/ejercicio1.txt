@@ -1,0 +1,16 @@
+Conjetura de collatz
+
+La conjetura plantea que cualquier entero > 0
+
+Aplicandole este algoritmo siempre termina en un loop 4, 2, 1
+
+Como es el algoritmo.
+
+let numero = 54554345345
+for (;;) {
+   // si es par ? entonces dividir x 2
+   // si es impar ? entonces aplicar la formula 3n + 1
+}
+
+La conjetura plantea que cualquier numero escogido
+termina en un bucle 4, 2, 1
