@@ -6,10 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.generarArchivos = void 0;
 const fs_1 = __importDefault(require("fs"));
 const os_1 = require("os");
-let generarArchivos = onFinish => {
+const genusuario_1 = require("./lib/genusuario");
+let generarArchivo = onFinish => {
     let carpeta = '/var/QatarMessi/';
-    let archivo = carpeta.concat('unArchivo.txt');
-    fs_1.default.appendFile(archivo, new Date() + '' + os_1.EOL, 'utf-8', (err) => {
+    let objUsuario = (0, genusuario_1.crearObjetoFake)();
+    let nombreArchivo = objUsuario.id.concat('.json');
+    let archivo = [carpeta, nombreArchivo].join('');
+    let txtUsuario = JSON.stringify(objUsuario);
+    fs_1.default.appendFile(archivo, txtUsuario + os_1.EOL, 'utf-8', (err) => {
         if (err) {
             console.log(err);
             return;
@@ -17,5 +21,11 @@ let generarArchivos = onFinish => {
         console.log('parece que fue ok...');
         onFinish(null);
     });
+};
+let generarArchivos = onFinish => {
+    /*
+    El problema que tenemos es que NO puedo hacer un
+    for y combinarlo con una operacion asincronica.
+    */
 };
 exports.generarArchivos = generarArchivos;
