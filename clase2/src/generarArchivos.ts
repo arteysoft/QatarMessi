@@ -1,6 +1,7 @@
 import fs from 'fs'
 import {EOL} from 'os'
 import {crearObjetoFake as crearUsuario} from './lib/genusuario'
+import {asyncForLoop} from './lib/asyncForLoop'
 
 let generarArchivo = onFinish => {
    let carpeta = '/var/QatarMessi/'
@@ -24,5 +25,17 @@ export let generarArchivos = onFinish => {
    El problema que tenemos es que NO puedo hacer un
    for y combinarlo con una operacion asincronica.
    */
-
+   asyncForLoop(2000, (nroCiclo, next, abort) => {
+      console.log(nroCiclo)
+      generarArchivo(err => {
+         if (err) {
+            console.log(err)
+            return
+         }
+         next()
+      })
+   }, err => {
+      console.log(err)
+      console.log('Termino todo el loop...')
+   })
 }
