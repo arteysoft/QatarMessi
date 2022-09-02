@@ -1,6 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const generarArchivos_1 = require("./generarArchivos");
-(0, generarArchivos_1.generarArchivos)(err => {
-    console.log('el resultado del callback es: ' + err);
+const leerCarpeta_1 = require("./lib/leerCarpeta");
+/*
+generarArchivos(err => {
+   console.log('el resultado del callback es: ' + err)
+})
+*/
+(0, leerCarpeta_1.leerDirectorio)(fls => {
+    console.log(fls);
 });

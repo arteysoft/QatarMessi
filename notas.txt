@@ -1,0 +1,11 @@
+"@types/jest": "^27.0.1",
+En la ultima version de node, hay que hacer este workaround.
+
+Para clase 3. Arrancar con 
+
+Destructuring
+para agregar la carpeta en leer carpeta. usar el map
+subir el contenido de los archivos a mongodb
+
+Para resolver el callback hell vamos a arrancar con Promises
+
