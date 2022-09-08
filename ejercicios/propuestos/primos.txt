@@ -1,0 +1,24 @@
+Obtener numeros primos.
+
+Como es el algorimo.
+
+   Dado un numero tengo que probar si es divisible*** por numeros 
+   primos hallados anteriormente. si NO es divisible es primo
+
+*** divisible es que se pueda dividir de forma entera
+
+[2] Arrancaria con este primo puesto, y arrancaria a partir del 3
+
+
+arrPrimos = [2]
+
+let fnDiscover = n => {
+   me fijo si n es disibile por cada uno de arrPrimos
+   si es ? lo descarto
+   si NO es, hago
+   arrPrimos.push(n)
+}
+
+
+
+
