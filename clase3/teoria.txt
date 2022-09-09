@@ -1,0 +1,8 @@
+Teoria de funciones puras/impuras
+
+Las funciones puras son aquellas que dado un input 
+siempre retornan el mismo output y ademas
+no realizan ningun cambio en el entorno
+ni se nutre del entorno
+
+
