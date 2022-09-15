@@ -23,3 +23,35 @@ export let ejercicio1 = () => {
       })
    })
 }
+
+/////////////////////////////////////////////////////
+
+let leerDirectorioPromise = () => {
+   return new Promise((resolve, reject) => {
+      let carpeta = '/var/QatarMessi/'
+
+      const archivos = fs.readdir(carpeta, (err, files) => {
+         if (err) {
+            reject(err)
+            return
+         }
+         resolve(files.map(z => carpeta.concat(z)))
+      })
+   })
+}
+
+let mostrarArchivos = (arrDir) => {
+   arrDir.forEach(element => {
+      console.log(element)
+   });
+}
+
+let mostrarError = err => {
+   console.log(err)
+}
+
+export let solucionEjercicio1 = () => {
+   leerDirectorioPromise()
+   .then(mostrarArchivos)
+   .catch(mostrarError)
+}

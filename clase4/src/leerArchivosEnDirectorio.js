@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ejercicio1 = void 0;
+exports.solucionEjercicio1 = exports.ejercicio1 = void 0;
 const leerCarpeta_1 = require("./lib/leerCarpeta");
 const fs = __importStar(require("fs"));
 const asyncForLoop_1 = require("./lib/asyncForLoop");
@@ -49,3 +49,30 @@ let ejercicio1 = () => {
     });
 };
 exports.ejercicio1 = ejercicio1;
+/////////////////////////////////////////////////////
+let leerDirectorioPromise = () => {
+    return new Promise((resolve, reject) => {
+        let carpeta = '/var/QatarMessi/';
+        const archivos = fs.readdir(carpeta, (err, files) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve(files.map(z => carpeta.concat(z)));
+        });
+    });
+};
+let mostrarArchivos = (arrDir) => {
+    arrDir.forEach(element => {
+        console.log(element);
+    });
+};
+let mostrarError = err => {
+    console.log(err);
+};
+let solucionEjercicio1 = () => {
+    leerDirectorioPromise()
+        .then(mostrarArchivos)
+        .catch(mostrarError);
+};
+exports.solucionEjercicio1 = solucionEjercicio1;
