@@ -62,17 +62,49 @@ let leerDirectorioPromise = () => {
         });
     });
 };
+let leerFilePromise = (pathArch) => {
+    return new Promise((resolve, reject) => {
+        fs.readFile(pathArch, 'utf-8', (err, data) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve(data);
+        });
+    });
+};
 let mostrarArchivos = (arrDir) => {
     arrDir.forEach(element => {
         console.log(element);
     });
+    return arrDir;
 };
 let mostrarError = err => {
+    console.log('------------------------');
     console.log(err);
+    console.log('------------------------');
+    return err;
+};
+let intercalarLinea = z => {
+    console.log('*************************');
+    console.log(z);
+    return z;
+};
+let iterarSobreLosArchivos = (arr) => {
+    return new Promise((resolve, reject) => {
+        (0, asyncForLoop_1.asyncForLoop)(arr.length, (idx, next) => {
+            leerFilePromise(arr[idx])
+                .then(intercalarLinea)
+                .then(intercalarLinea)
+                .then(next)
+                .catch(reject);
+        }, () => { });
+    });
 };
 let solucionEjercicio1 = () => {
     leerDirectorioPromise()
         .then(mostrarArchivos)
+        .then(iterarSobreLosArchivos)
         .catch(mostrarError);
 };
 exports.solucionEjercicio1 = solucionEjercicio1;
