@@ -1,17 +1,19 @@
 import fs from 'fs'
-import path from 'path'
+import {promisify} from './promisify'
 
 export let leerDirectorio = (onFinish) =>{
    console.log('carpeta actual: ' + __dirname)
-   let carpeta = '/var/QatarMessi/'
+   let carpeta = process.env.PATH_ARCHIVOS_USUARIO
 
    const archivos = fs.readdir(carpeta, (err, files) => {
       if (err) {
-         console.log(err)
+         onFinish(err)
          return
       }
-
-
-      onFinish(files.map(z => carpeta.concat(z)))
+      onFinish(null, files.map(z => carpeta.concat("/").concat(z)))
    })
+}
+
+export let leerDirectorioPromise = () => {
+   return promisify(leerDirectorio.bind(null))
 }

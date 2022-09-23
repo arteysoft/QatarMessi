@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.insert = void 0;
+exports.insertPromise = exports.insert = void 0;
 const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://127.0.0.1:27017';
 let objDeprecateCfg = {
@@ -29,3 +29,15 @@ let insert = (base, coleccion, documento, callBackFn) => {
     });
 };
 exports.insert = insert;
+let insertPromise = (base, coleccion, documento) => {
+    return new Promise((resolve, reject) => {
+        (0, exports.insert)(base, coleccion, documento, (err, data) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve(data);
+        });
+    });
+};
+exports.insertPromise = insertPromise;

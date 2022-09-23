@@ -29,3 +29,15 @@ export let insert = (base, coleccion, documento, callBackFn) => {
         });
       });
 }
+
+export let insertPromise = (base, coleccion, documento) => {
+    return new Promise((resolve, reject) => {
+        insert(base, coleccion, documento, (err, data) => {
+            if (err) {
+                reject(err)
+                return
+            }
+            resolve(data)
+        })
+    })
+}
