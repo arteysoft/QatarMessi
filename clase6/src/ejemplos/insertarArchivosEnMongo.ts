@@ -2,7 +2,7 @@ import {leerDirectorioPromise} from '../lib/leerCarpeta'
 import {leerArchivo} from '../lib/leerArchivo'
 import {insertPromise} from '../lib/mongocli'
 
-export async function fnPrueba() {
+export async function insertarArchivosEnMongo() {
     let arrArchivos:any = await leerDirectorioPromise()
     for (let arch of arrArchivos) {
         let contenido:string = await leerArchivo(arch)
@@ -14,5 +14,3 @@ export async function fnPrueba() {
         console.log(formatoJson)
     }    
 }
-
-fnPrueba()
