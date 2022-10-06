@@ -3,8 +3,8 @@ import {asyncForLoop} from '../lib/asyncForLoop'
 import {crearObjetoFake as crearUsuario} from '../lib/genusuario'
 
 export let insertMongoRandom = () => {
-    asyncForLoop(100000, (idx, next, abort) => {
-        insert(process.env.BASE_MONGO, 'usuarios', crearUsuario(), e => {
+    asyncForLoop(100000, (idx:any, next:Function, abort:Function) => {
+        insert(process.env.BASE_MONGO, 'usuarios', crearUsuario(), (e:any) => {
             if (e) {
                 abort(e)
                 return
@@ -12,7 +12,7 @@ export let insertMongoRandom = () => {
             console.log(idx)
             next()
         })
-    }, e => {
+    }, (e:any) => {
         console.log(e)
     })
 }
