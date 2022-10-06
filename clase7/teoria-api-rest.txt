@@ -10,6 +10,9 @@ GET
       Siempre retorna un array, aunque sea un array vacio.
 
 POST
+
+  Solo lleva body
+
 PUT
 DELETE
 

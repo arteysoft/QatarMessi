@@ -48,6 +48,28 @@ export let query = (base, coleccion, query, callBackFn) => {
     })
 }
 
+export let deleteOne = (base, coleccion, id, callBackFn) => {
+    let cliente:MongoClient
+
+    MongoClient.connect(url)
+    .then(client => {
+        cliente = client
+        let db = client.db(base)
+        let collection = db.collection(coleccion)
+        return collection
+    })
+    .then(collection => {
+        return collection.deleteOne({id})
+    })
+    .then(() => {
+        cliente.close()
+        callBackFn(null)
+    })
+    .catch((e) => {
+        cliente.close()
+        callBackFn(e)
+    })
+}
 
 /*
 export let query = (base, coleccion, query, callBackFn) => {
