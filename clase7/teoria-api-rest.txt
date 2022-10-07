@@ -14,5 +14,12 @@ POST
   Solo lleva body
 
 PUT
+
+  Aparentemente el mas complicado  
+
 DELETE
+
+  Bastante facil
+  
+  url/id
 

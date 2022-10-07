@@ -1,5 +1,5 @@
 import express from 'express'
-import {query, insert, deleteOne} from '../lib/mongocli2'
+import {query, insert, deleteOne, updateOne} from '../lib/mongocli2'
 import {crearObjetoFake} from '../lib/genusuario'
 
 export let ejemploCompletoExpress = () => {
@@ -72,6 +72,25 @@ export let ejemploCompletoExpress = () => {
             }
             response
             .status(201)
+            .send()
+        })
+    })
+
+    app.put('/:id', (request, response) => {
+        let obj = request.body
+        obj.id = request.params.id
+        console.log(obj)
+        updateOne(process.env.BASE_MONGO, 'usuarios', obj, (e) => {
+            if (e) {
+                console.log(e)
+                response
+                .status(500)
+                .send()        
+                return
+            }
+            console.log(e)
+            response
+            .status(200)
             .send()
         })
     })

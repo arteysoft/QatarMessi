@@ -11,10 +11,22 @@ export let insert = (base, coleccion, documento, callBackFn) => {
         let db = client.db(base)
         let collection = db.collection(coleccion)
         return collection
-    })
+    })    
     .then(coleccion => {
         return coleccion.insertOne(documento)
     })
+    .then(metadata => {
+        return new Promise((r) => {
+            setTimeout(() => {
+                console.log('insertando metada... en mysql')
+                r(metadata)
+            }, 1)
+        })
+    })
+    .then(metadata => {
+        console.log(metadata)
+        return metadata
+    })    
     .then(result => {
         setTimeout(callBackFn.bind(null, null, result), 0)
         cliente.close()
@@ -45,6 +57,29 @@ export let query = (base, coleccion, query, callBackFn) => {
     .catch(_ => {
         cliente.close()
         callBackFn(null)
+    })
+}
+
+export let updateOne = (base, coleccion, documento, callBackFn) => {
+    let cliente:MongoClient
+
+    MongoClient.connect(url)
+    .then(client => {
+        cliente = client
+        let db = client.db(base)
+        let collection = db.collection(coleccion)
+        return collection
+    })
+    .then(collection => {
+        return collection.updateOne({id: documento.id}, { $set: documento })
+    })
+    .then(() => {
+        cliente.close()
+        callBackFn(null)
+    })
+    .catch((e) => {
+        cliente.close()
+        callBackFn(e)
     })
 }
 
