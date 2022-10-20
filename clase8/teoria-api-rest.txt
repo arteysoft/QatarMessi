@@ -1,0 +1,25 @@
+Es un api que corre bajo el protocolo HTTP
+
+Con lo cual utiliza algunos verbos HTTP como
+
+GET
+  Dos formas de invocarlo
+  GET /unID
+      Retorna o bien un objeto o bien 404
+  GET ?nombre=alonso&apellido=cerna
+      Siempre retorna un array, aunque sea un array vacio.
+
+POST
+
+  Solo lleva body
+
+PUT
+
+  Aparentemente el mas complicado  
+
+DELETE
+
+  Bastante facil
+  
+  url/id
+
