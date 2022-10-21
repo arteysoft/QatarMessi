@@ -1,6 +1,6 @@
 import {MongoClient} from 'mongodb'
 
-const url = 'mongodb://127.0.0.1:27017'
+const url = 'mongodb://67.205.165.25:27017'
 
 export let insert = (base, coleccion, documento, callBackFn) => {
     let cliente:MongoClient

@@ -1,5 +1,7 @@
 import express from 'express'
 import usuarioRouter from './Routes/usuario';
+import usuarioLoginRouter from './Routes/usuariologin';
+
 
 export let ejemploCompletoExpress = () => {
     let app = express()
@@ -26,6 +28,7 @@ export let ejemploCompletoExpress = () => {
     })
 
     app.use(usuarioRouter)
+    app.use(usuarioLoginRouter)
 
     app.use('/', (err, _request, response, _next) => {
         console.log(err)
