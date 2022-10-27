@@ -1,0 +1,6 @@
+Donde se crea el objeto se crea el ID
+
+creas in objeto luego va a una cola
+
+Migraciones de bases
+
