@@ -2,3 +2,11 @@ h1 {
   color: white;
   background-color: black;
 }
+
+.altura60 {
+  height: 60px;
+}
+
+.margen {
+  margin-left: 4px;
+}
