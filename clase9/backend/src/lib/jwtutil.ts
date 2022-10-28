@@ -8,10 +8,14 @@ export let generarToken = (suscriber) => {
         sub : suscriber,
         nombre : suscriber,
         iat : hora(),
-        exp : hora()+600,
+        exp : hora()+30,
         roles: ['ADMIN', 'USER']
     }
     
     let token = jwtlib.sign(payload, PK)
     return token
+}
+
+export let verificarToken = (token:string):jwtlib.JwtPayload|string => {
+    return jwtlib.verify(token, PK)
 }
