@@ -1,5 +1,6 @@
 import {login} from './ajax'
 
+/*
 document.addEventListener('click', e => {
     console.log(e.target.id)
     if (e.target.id == 'btnLogout') {
@@ -11,3 +12,5 @@ document.addEventListener('click', e => {
         })
     }
 })
+*/
+
