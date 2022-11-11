@@ -1,0 +1,37 @@
+Browsers
+              -------> HTTPS --------> 1) Cerfiticados (F5, A10) ---> HTTP ---> www.miempresa.com -- api gateway (nginx)  Balanceador de carga ->  ---> MAQVIR1
+                                            SSL OFFLOADING
+Mobile                                                                                                                                                  MAQVIR2
+
+
+AB Testing 
+
+
+ROUND ROBIN -
+            -
+            -
+            -
+
+Mongo
+SQL Server / MySQL
+memcached / redis
+MQ / Kafka
+
+
+Cloud computing
+
+IAAS: Maquinas virtuales en linux
+PAAS: Deploy, Integracion continua (Serverless) heroku, aws, azure, digital ocean, firebase
+SAAS: Github, Jira, Adobe
+
+
+function recursiva() {
+   fetch('/api')
+   .then(z => z.json())
+   .then(z => { 
+      console.log(z.arr[0])
+      setTimeout(recursiva, 1000)
+   })
+}
+
+

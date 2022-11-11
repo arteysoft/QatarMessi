@@ -1,0 +1,75 @@
+Docker jerga.
+
+imagen docker
+   consta de varias capas o layers
+container docker
+   una instancia de una imagen de docker
+
+tanto la imagen como el container tienen id.
+
+Arquetcura inmutable / git / block-chain
+
+existe un repositorio central que se llama dockerhub
+
+docker pull x default va a traer las imagenes de dockerhub
+https://hub.docker.com/
+
+tag es version 
+
+comandos
+
+docker images (muestra las imagenes de docker)
+docker ps (muestra los containers activos)
+docker ps -a (muestra los containers activos + los inactivos)
+
+correr un container, ejecutando un comando en el mismo.
+
+una vez que corremos una imgen, nos queda ese container inactiva
+
+Luego, armamos el docker file, tal como esta en git
+
+docker build -t qatarmessi:v1 .
+
+analizamos los layers o capas de nodejs
+
+"sha256:d9d07d703dd5ba0b8e23bf7e1bd9f7e4093418a58dc9e470ca013d1c3a1b5bb5",
+"sha256:4ed121b04368587cfd083eac5f6210d00149f4262a298635e37002b1e8f2b885",
+"sha256:d38adf39e1dd1874b5ae52f844a8101c1a3b2b8f137ceab469348decbbe618e0",
+"sha256:d1dec9917839d08e32cc28fe0d9ae462449d4c5544f625828fb09aead956d5ec",
+"sha256:882fd36bfd35d8c0c12d8472686059e1a6943c23a1e12ff9c18bceec3027e47c",
+"sha256:f1479df99400a893595b08231981cd7088732f8965bb79aadbcce5a615d053e3",
+"sha256:61cf42256970c9617df502ca9674c5c0882b38cc3daa80c199cebf11e0ae39d0",
+"sha256:25478c00b6e8420bf1719f7f160a88590e11e484652a7cbc7200ecb7a4f58e00",
+"sha256:aae1fab7b8e131eefa9a5d50929a9f1cfe68ad15fe856b189f44c48287ba8a13"
+
+
+"sha256:d9d07d703dd5ba0b8e23bf7e1bd9f7e4093418a58dc9e470ca013d1c3a1b5bb5",
+"sha256:4ed121b04368587cfd083eac5f6210d00149f4262a298635e37002b1e8f2b885",
+"sha256:d38adf39e1dd1874b5ae52f844a8101c1a3b2b8f137ceab469348decbbe618e0",
+"sha256:d1dec9917839d08e32cc28fe0d9ae462449d4c5544f625828fb09aead956d5ec",
+"sha256:882fd36bfd35d8c0c12d8472686059e1a6943c23a1e12ff9c18bceec3027e47c",
+"sha256:f1479df99400a893595b08231981cd7088732f8965bb79aadbcce5a615d053e3",
+"sha256:61cf42256970c9617df502ca9674c5c0882b38cc3daa80c199cebf11e0ae39d0",
+"sha256:25478c00b6e8420bf1719f7f160a88590e11e484652a7cbc7200ecb7a4f58e00",
+"sha256:aae1fab7b8e131eefa9a5d50929a9f1cfe68ad15fe856b189f44c48287ba8a13",
+"sha256:959cf136b48627228f9dbc829654e4ab5173e566311d3d9ec9e0b63f7b500f45",
+"sha256:9eaad2f3fc338cfc4f7fc737e5928dffb3561183b5b51dc43c411ea1a13996f1",
+"sha256:72f25c2492669bbdf7ca8d74cffe4e907ca21c3d7632a3819c50ba2caae63e06",
+"sha256:f22d84402d33856cf296d2000bc2ae1dc870162f226c310e5c56bbdf1d53192f"
+
+
+para ejecutar el container
+
+docker run -d -e name=uno --name 2130  -p 11001:80 qatarmessi:v1
+docker run -d -e name=dos --name 2131  -p 11002:80 qatarmessi:v1
+docker run -d -e name=tres --name 2132 -p 11003:80 qatarmessi:v1
+
+docker rm (borra un container, ojo que tiene que estar inactivo)
+docker stop nombre
+
+docker rmi (ojo, que no puede tener containers asociados de lo contrario -f)
+
+
+
+
+
