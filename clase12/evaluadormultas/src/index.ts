@@ -5,6 +5,9 @@ import {initLogicaMultas} from './logicaMultas'
 
 dotenv.config()
 
+/*
 initColaMemoria()
 initConsumer()
 initLogicaMultas()
+*/
+
